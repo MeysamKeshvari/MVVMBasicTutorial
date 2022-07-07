@@ -1,9 +1,11 @@
 package meysam.keshvari.mvvmbasictutorial.data
 
-class FakeDatabase private constructor(){
+class FakeDatabase private constructor() {
     var quoteDao = FakeQuoteDao()
-    companion object{
-        @Volatile private var instance : FakeDatabase? = null
+
+    companion object {
+        @Volatile
+        private var instance: FakeDatabase? = null
 
         fun getInstance() = instance ?: synchronized(this) {
             instance ?: FakeDatabase().also { instance = it }
