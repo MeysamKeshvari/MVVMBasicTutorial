@@ -10,4 +10,6 @@ class QuotesViewModelFactory(private val quoteRepository: QuoteRepository) : Vie
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return QuotesViewModel(quoteRepository) as T
     }
+
+
 }

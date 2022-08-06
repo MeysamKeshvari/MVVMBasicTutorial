@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_quotes.*
 import meysam.keshvari.mvvmbasictutorial.R
 import meysam.keshvari.mvvmbasictutorial.data.Quote
 import meysam.keshvari.mvvmbasictutorial.utilities.InjectorUtils
 import java.lang.StringBuilder
+import kotlinx.android.synthetic.main.activity_quotes.*
 
 class QuotesActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class QuotesActivity : AppCompatActivity() {
             quotes.forEach { quote ->
                 stringBuilder.append("$quote\n\n")
             }
-            textView.text = stringBuilder.toString();
+            textView.text = stringBuilder.toString()
         })
 
         button.setOnClickListener {
@@ -35,6 +35,10 @@ class QuotesActivity : AppCompatActivity() {
             viewModel.addQuote(quote)
             editTextQuote.setText("")
             editTextAuthor.setText("")
+        }
+
+        buttonDelete.setOnClickListener {
+            viewModel.deleteAllQuotes()
         }
     }
 }
